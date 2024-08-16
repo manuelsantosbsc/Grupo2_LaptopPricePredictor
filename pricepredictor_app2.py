@@ -56,7 +56,7 @@ if st.button('Predecir el precio'):
         'Touchscreen': [touchscreen],
         'screen_width': [screen_width],
         'SSD_GB': [ssd],
-        'HDD_GB': [hdd],
+        'HDD_GB': [hdd]
        
     })
    # Asegúrate de que el orden de las columnas en input_data coincide con el orden que se usó en el entrenamiento
