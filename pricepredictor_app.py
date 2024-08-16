@@ -1,7 +1,7 @@
 
-!pip install Pillow    
-!pip install streamlit
-!pip install scikit-learn
+#!pip install Pillow    
+#!pip install streamlit
+#!pip install scikit-learn
 
 import streamlit as st
 import pandas as pd
