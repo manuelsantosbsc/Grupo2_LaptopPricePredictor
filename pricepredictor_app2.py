@@ -44,7 +44,7 @@ if st.button('Predecir el precio'):
     input_data = pd.DataFrame({
         'SSD_GB': [ssd],
         'HDD_GB': [hdd],
-        'Cpu_hgz': [cpu_ghz],
+        'Cpu_ghz': [cpu_ghz],
         'Ram': [ram],
         'Weight': [weight],
         'Touchscreen': [touchscreen],
@@ -54,7 +54,7 @@ if st.button('Predecir el precio'):
     })
 
     # Asegúrate de que el orden de las columnas en input_data coincide con el orden que se usó en el entrenamiento
-    input_data = input_data[['SSD_GB', 'Cpu_hgz', 'Ram', 'Weight', 'IPS', 'Touchscreen', 'screen_width', 'HDD_GB', 'Inches']]
+    input_data = input_data[['SSD_GB', 'Cpu_ghz', 'Ram', 'Weight', 'IPS', 'Touchscreen', 'screen_width', 'HDD_GB', 'Inches']]
 
     # Validar el formato y el contenido del DataFrame
     st.write("Datos de entrada para la predicción:")
