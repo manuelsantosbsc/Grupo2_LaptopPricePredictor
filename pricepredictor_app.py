@@ -1,7 +1,8 @@
 
-!pip install Pillow    
-!pip install streamlit
-!pip install scikit-learn
+#!pip install Pillow    
+#!pip install streamlit
+#!pip install scikit-learn
+#Estas 3 lineas anteriores se deben cargar en un archivo independiente llamado requirements.txt
 
 import streamlit as st
 import pandas as pd
@@ -20,7 +21,7 @@ with open('scaler.pkl', 'rb') as file:
 # Cargar el DataFrame desde un archivo .pkl
 df = pd.read_pickle('df.pkl')  # Asegúrate de que este archivo contiene un DataFrame
 
-st.write('Aplicativo Web para predecir el precio de una laptop')
+st.write('Aplicativo web para predecir el precio de una laptop')
 
 # Crear selectboxes para la entrada de datos
 ssd = st.selectbox('Disco SSD (en GB)', df['SSD_GB'].unique())
