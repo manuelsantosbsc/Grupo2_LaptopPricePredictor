@@ -97,8 +97,8 @@ if st.button('Predecir el precio'):
     touchscreen = 1 if touchscreen == "Yes" else 0
     ips = 1 if ips == "Yes" else 0
 
-      # Procesar resolución
-    screen_width = float(resolution.split('x')[0])
+# Procesar resolución
+screen_width = float(resolution.split('x')[0])
 
         
             # Mostrar la predicción
