@@ -54,7 +54,7 @@ if st.button('Predecir el precio'):
     })
 
     # Asegúrate de que el orden de las columnas en input_data coincide con el orden que se usó en el entrenamiento
-    input_data = input_data[['SSD_GB', 'Cpu_GHz', 'Ram', 'Weight', 'IPS', 'Touchscreen', 'screen_width', 'HDD_GB', 'Inches']]
+    input_data = input_data[['Inches','Ram','Weight','Cpu_GHz', 'IPS','Touchscreen','screen_width','SSD_GB', 'HDD_GB']]
 
     # Validar el formato y el contenido del DataFrame
     st.write("Datos de entrada para la predicción:")
