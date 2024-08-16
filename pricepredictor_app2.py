@@ -55,8 +55,8 @@ if st.button('Predecir el precio'):
         'Weight': [weight],
         'Touchscreen': [touchscreen],
         'IPS': [ips],
-      'screen_width': [screen_width]
-        'Inches': [inches],
+      'screen_width': [screen_width],
+        'Inches': [inches]
          
     })
    # Asegúrate de que el orden de las columnas en input_data coincide con el orden que se usó en el entrenamiento
