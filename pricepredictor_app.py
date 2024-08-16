@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 import pickle
 from sklearn.preprocessing import StandardScaler
-!pip install scikit-learn
+pip install scikit-learn
 
 # Cargar el modelo entrenado
 with open('modelo_optimizado.pkl', 'rb') as file:
