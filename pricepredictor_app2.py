@@ -55,8 +55,9 @@ if st.button('Predecir el precio'):
         'Weight': [weight],
         'Touchscreen': [touchscreen],
         'IPS': [ips],
-       'Inches': [inches],
-         'screen_width': [screen_width]
+      'screen_width': [screen_width]
+        'Inches': [inches],
+         
     })
    # Asegúrate de que el orden de las columnas en input_data coincide con el orden que se usó en el entrenamiento
    ## input_data = input_data[['SSD_GB', 'Cpu_hgz', 'Ram', 'Weight', 'IPS', 'Touchscreen', 'screen_width', 'HDD_GB', 'Inches']]
