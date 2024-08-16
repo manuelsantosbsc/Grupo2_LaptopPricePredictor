@@ -38,10 +38,13 @@ inches = st.selectbox('Tamaño de pantalla (en pulgadas)', df['Inches'].unique()
 screen_width = 0
 
 # Predicción
+"""
 if st.button('Predecir el precio'):
     # Convertir entradas categóricas a numéricas
     touchscreen = 1 if touchscreen == "Yes" else 0
     ips = 1 if ips == "Yes" else 0
+
+"""
     
     # Procesar resolución
     screen_width = float(resolution.split('x')[0])
@@ -89,6 +92,12 @@ if st.button('Predecir el precio'):
             # Realizar la predicción
             prediction = modelo.predict(input_scaled)
 
+    if st.button('Predecir el precio'):
+    # Convertir entradas categóricas a numéricas
+    touchscreen = 1 if touchscreen == "Yes" else 0
+    ips = 1 if ips == "Yes" else 0
+
+        
             # Mostrar la predicción
             st.write(f'Precio predecido: {prediction[0]:.2f} euros')
         except Exception as e:
