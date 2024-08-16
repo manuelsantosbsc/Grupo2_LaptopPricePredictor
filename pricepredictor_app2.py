@@ -82,7 +82,7 @@ if st.button('Predecir el precio'):
 
 
     
-    if input_data.isnull().values.any() :
+if input_data.isnull().values.any() :
         st.error("Los datos de entrada contienen valores NaN")
     else:
         # Escalar los datos de entrada usando el scaler previamente entrenado
@@ -92,16 +92,16 @@ if st.button('Predecir el precio'):
             # Realizar la predicción
             prediction = modelo.predict(input_scaled)
 
-    if st.button('Predecir el precio'):
+if st.button('Predecir el precio'):
     # Convertir entradas categóricas a numéricas
-    touchscreen = 1 if touchscreen == "Yes" else 0
-    ips = 1 if ips == "Yes" else 0
+touchscreen = 1 if touchscreen == "Yes" else 0
+ips = 1 if ips == "Yes" else 0
 
 # Procesar resolución
 screen_width = float(resolution.split('x')[0])
 
         
-            # Mostrar la predicción
-            st.write(f'Precio predecido: {prediction[0]:.2f} euros')
-        except Exception as e:
-            st.error(f"Error al realizar la predicción: {str(e)}")
+# Mostrar la predicción
+st.write(f'Precio predecido: {prediction[0]:.2f} euros')
+except Exception as e:
+st.error(f"Error al realizar la predicción: {str(e)}")
