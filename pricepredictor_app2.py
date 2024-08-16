@@ -47,17 +47,16 @@ if st.button('Predecir el precio'):
     screen_width = float(resolution.split('x')[0])
     
      # Crear DataFrame para los datos de entrada
-    input_data = pd.DataFrame({
-        'Inches': [inches],
-        'Ram': [ram],
-        'Weight': [weight],
-        'Cpu_hgz': [cpu_ghz],
-        'IPS': [ips],
-        'Touchscreen': [touchscreen],
-        'screen_width': [screen_width],
+    input_data = pd.DataFrame({          
         'SSD_GB': [ssd],
-        'HDD_GB': [hdd]
-       
+        'HDD_GB': [hdd],
+        'Cpu_hgz': [cpu_ghz],
+         'Ram': [ram],
+        'Weight': [weight],
+        'Touchscreen': [touchscreen],
+        'IPS': [ips],
+       'Inches': [inches],
+         'screen_width': [screen_width]
     })
    # Asegúrate de que el orden de las columnas en input_data coincide con el orden que se usó en el entrenamiento
    ## input_data = input_data[['SSD_GB', 'Cpu_hgz', 'Ram', 'Weight', 'IPS', 'Touchscreen', 'screen_width', 'HDD_GB', 'Inches']]
