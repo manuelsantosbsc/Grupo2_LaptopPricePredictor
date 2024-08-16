@@ -1,9 +1,3 @@
-
-#!pip install Pillow    
-#!pip install streamlit
-#!pip install scikit-learn
-#Estas 3 lineas anteriores se deben cargar en un archivo independiente llamado requirements.txt
-
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -38,70 +32,46 @@ inches = st.selectbox('Tamaño de pantalla (en pulgadas)', df['Inches'].unique()
 screen_width = 0
 
 # Predicción
-"""
 if st.button('Predecir el precio'):
     # Convertir entradas categóricas a numéricas
     touchscreen = 1 if touchscreen == "Yes" else 0
     ips = 1 if ips == "Yes" else 0
 
-"""
-    
     # Procesar resolución
     screen_width = float(resolution.split('x')[0])
-    
-     # Crear DataFrame para los datos de entrada
-    input_data = pd.DataFrame({          
+
+    # Crear DataFrame para los datos de entrada
+    input_data = pd.DataFrame({
         'SSD_GB': [ssd],
         'HDD_GB': [hdd],
         'Cpu_hgz': [cpu_ghz],
-         'Ram': [ram],
+        'Ram': [ram],
         'Weight': [weight],
         'Touchscreen': [touchscreen],
         'IPS': [ips],
-      'screen_width': [screen_width],
+        'screen_width': [screen_width],
         'Inches': [inches]
-         
     })
-   # Asegúrate de que el orden de las columnas en input_data coincide con el orden que se usó en el entrenamiento
-   ## input_data = input_data[['SSD_GB', 'Cpu_hgz', 'Ram', 'Weight', 'IPS', 'Touchscreen', 'screen_width', 'HDD_GB', 'Inches']]
 
-    # Escalar los datos de entrada usando el scaler previamente entrenado
-    
-  ##  input_scaled = scaler.fit_transform(input_data)
-
-    # Realizar la predicción
-  ##  prediction = modelo.predict(input_scaled)
-
-    # Mostrar la predicción
-  ##  st.write(f'Precio predecido: {prediction[0]:.2f} euros')
-    # Verificar si hay valores NaN o infinitos
+    # Asegúrate de que el orden de las columnas en input_data coincide con el orden que se usó en el entrenamiento
+    input_data = input_data[['SSD_GB', 'Cpu_hgz', 'Ram', 'Weight', 'IPS', 'Touchscreen', 'screen_width', 'HDD_GB', 'Inches']]
 
     # Validar el formato y el contenido del DataFrame
     st.write("Datos de entrada para la predicción:")
     st.write(input_data)  # Muestra el DataFrame en la interfaz de Streamlit
 
-
-    
-if input_data.isnull().values.any() :
+    # Verificar si hay valores NaN o infinitos
+    if input_data.isnull().values.any():
         st.error("Los datos de entrada contienen valores NaN")
     else:
-        # Escalar los datos de entrada usando el scaler previamente entrenado
         try:
-            input_scaled = scaler.fit_transform(input_data)
+            # Escalar los datos de entrada usando el scaler previamente entrenado
+            input_scaled = scaler.transform(input_data)
 
             # Realizar la predicción
             prediction = modelo.predict(input_scaled)
 
-if st.button('Predecir el precio'):
-    # Convertir entradas categóricas a numéricas
-touchscreen = 1 if touchscreen == "Yes" else 0
-ips = 1 if ips == "Yes" else 0
-
-# Procesar resolución
-screen_width = float(resolution.split('x')[0])
-
-        
-# Mostrar la predicción
-st.write(f'Precio predecido: {prediction[0]:.2f} euros')
-except Exception as e:
-st.error(f"Error al realizar la predicción: {str(e)}")
+            # Mostrar la predicción
+            st.write(f'Precio predecido: {prediction[0]:.2f} euros')
+        except Exception as e:
+            st.error(f"Error al realizar la predicción: {str(e)}")
