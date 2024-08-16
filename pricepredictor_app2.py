@@ -18,15 +18,15 @@ df = pd.read_pickle('df2.pkl')  # Asegúrate de que este archivo contiene un Dat
 st.write('Aplicativo web para predecir el precio de una laptop')
 
 # Crear selectboxes para la entrada de datos
-ssd = st.selectbox('Disco SSD (en GB)', df['SSD_GB'].unique())
-hdd = st.selectbox('Disco HDD (en GB)', df['HDD_GB'].unique())
-cpu_ghz = st.selectbox("CPU GHz", df['Cpu_GHz'].unique())
+inches = st.selectbox('Tamaño de pantalla (en pulgadas)', df['Inches'].unique())
 ram = st.selectbox("Ram (en GB)", df['Ram'].unique())
 weight = st.selectbox("Peso de la Laptop (en kg)", df['Weight'].unique())
-touchscreen = st.selectbox("Pantalla TouchScreen", ['No', 'Yes'])
+cpu_ghz = st.selectbox("CPU GHz", df['Cpu_GHz'].unique())
 ips = st.selectbox("Pantalla IPS", ['No', 'Yes'])
+touchscreen = st.selectbox("Pantalla TouchScreen", ['No', 'Yes'])
 resolution = st.selectbox('Resolución de la pantalla', ['1920x1080', '1366x768', '1600x900', '3840x2160', '3200x1800', '2880x1800', '2560x1600', '2560x1440', '2304x1440'])
-inches = st.selectbox('Tamaño de pantalla (en pulgadas)', df['Inches'].unique())
+ssd = st.selectbox('Disco SSD (en GB)', df['SSD_GB'].unique())
+hdd = st.selectbox('Disco HDD (en GB)', df['HDD_GB'].unique())
 
 # Variable de ancho de pantalla (si es necesario, de lo contrario, puedes eliminar esta línea)
 screen_width = 0
@@ -42,15 +42,15 @@ if st.button('Predecir el precio'):
 
     # Crear DataFrame para los datos de entrada
     input_data = pd.DataFrame({
-        'SSD_GB': [ssd],
-        'HDD_GB': [hdd],
-        'Cpu_GHz': [cpu_ghz],
+        'Inches': [inches],
         'Ram': [ram],
         'Weight': [weight],
-        'Touchscreen': [touchscreen],
+        'Cpu_GHz': [cpu_ghz],
         'IPS': [ips],
+        'Touchscreen': [touchscreen],
         'screen_width': [screen_width],
-        'Inches': [inches]
+        'SSD_GB': [ssd],
+        'HDD_GB': [hdd]
     })
 
     # Asegúrate de que el orden de las columnas en input_data coincide con el orden que se usó en el entrenamiento
