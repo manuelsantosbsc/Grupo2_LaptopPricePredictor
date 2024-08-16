@@ -57,8 +57,8 @@ if st.button('Predecir el precio'):
     input_data = input_data[['Inches','Ram','Weight','Cpu_GHz', 'IPS','Touchscreen','screen_width','SSD_GB', 'HDD_GB']]
 
     # Validar el formato y el contenido del DataFrame
-    st.write("Datos de entrada para la predicción:")
-    st.write(input_data)  # Muestra el DataFrame en la interfaz de Streamlit
+    # st.write("Datos de entrada para la predicción:")
+    # st.write(input_data)  # Muestra el DataFrame en la interfaz de Streamlit
 
     # Verificar si hay valores NaN o infinitos
     if input_data.isnull().values.any():
