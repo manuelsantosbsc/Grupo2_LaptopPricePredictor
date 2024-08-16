@@ -71,6 +71,13 @@ if st.button('Predecir el precio'):
     # Mostrar la predicción
   ##  st.write(f'Precio predecido: {prediction[0]:.2f} euros')
     # Verificar si hay valores NaN o infinitos
+
+    # Validar el formato y el contenido del DataFrame
+    st.write("Datos de entrada para la predicción:")
+    st.write(input_data)  # Muestra el DataFrame en la interfaz de Streamlit
+
+
+    
     if input_data.isnull().values.any() :
         st.error("Los datos de entrada contienen valores NaN")
     else:
